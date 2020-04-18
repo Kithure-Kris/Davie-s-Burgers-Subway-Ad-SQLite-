@@ -1,0 +1,33 @@
+ select * from orders
+ limit 10;
+ 
+ --How recent is this data?
+ select distinct order_date from orders
+ order by order_date desc;
+ 
+ --Check on the notes Davie's Burgers customers leave for the kitchen or delivery
+ 
+ select special_instructions from orders
+ where special_instructions is not null
+ order by special_instructions
+ limit 20;
+ 
+ --Search for special instructions that have the word 'sauce'
+ 
+ select special_instructions from orders
+ where special_instructions like '%sauce%';
+ 
+ --Search for special instructions that have the word 'door'
+ 
+ select special_instructions from orders
+ where special_instructions like '%door%';
+ 
+ --Search for special instructions that have the word 'box'
+ 
+ select special_instructions from orders
+ where special_instructions like '%box%';
+ 
+ --What are their order numbers? For readability, rename id as '#' an special_instructions as 'Notes'
+ 
+ select id as '#', special_instructions as 'Notes' from orders
+ where special_instructions is not null;
